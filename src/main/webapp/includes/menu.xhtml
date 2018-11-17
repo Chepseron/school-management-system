@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:p="http://primefaces.org/ui" xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ul class="sidebar-menu">
+        <li>
+            <li>
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="images/Amon Sabul.jpg" class="img-circle" alt="User Image"/>
+                    </div>
+                    <div class="pull-left info">
+                        <p>#{sch.user.email}</p>
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div>
+                <!-- search form (Optional) -->
+                <form action="#" method="get" class="sidebar-form">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Search..."/>
+                        <span class="input-group-btn">
+                            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </li>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-cogs"></i>
+                <span>Global Setup</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-right pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-sign-in"></i>
+                        <span>Access</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <p:link href="/groups.xhtml">
+                                <i class="fa  fa-group"></i>
+                                <span class="pull-left-container">User groups</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/users.xhtml">
+                                <i class="fa fa-users"></i>
+                                <span>Users</span>
+                            </p:link>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-home"></i>
+                        <span>Main</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <p:link href="/school.xhtml">
+                                <i class="fa  fa-cogs"></i>
+                                <span class="pull-left-container">School Setup</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/dept.xhtml">
+                                <i class="fa fa-building"></i>
+                                <span>Departments</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/subjectgroups.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>Subject Groups</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/subj.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>Subjects</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/subjectcombination.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>Subject Combinations</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/subjkcpe.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>KCPE subjects</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/kcpegrade.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>KCPE Grade</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/dorms.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>Dormitories</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/houses.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>Houses</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/status.xhtml">
+                                <i class="fa fa-cogs"></i>
+                                <span>Student Statuses</span>
+                            </p:link>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>Classes</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <p:link href="/forms.xhtml">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Forms</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/streams.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>Streams</span>
+                            </p:link>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-map"></i>
+                        <span>Places</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <p:link href="/county.xhtml">
+                                <i class="fa fa-flask"></i>
+                                <span>County</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/district.xhtml">
+                                <i class="fa fa-bank"></i>
+                                <span>District</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/division.xhtml">
+                                <i class="fa fa-sitemap"></i>
+                                <span>Divisions</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/zones.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>Zones</span>
+                            </p:link>
+                        </li>
+
+                        <li>
+                            <p:link href="/locations.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>Locations </span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/sublocation.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>Sub Location</span>
+                            </p:link>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>Responsibilities</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <p:link href="/responsibilities.xhtml">
+                                <i class="fa fa-flask"></i>
+                                <span>Responsibilities</span>
+                            </p:link>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>Calendar</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <p:link href="/calyear.xhtml">
+                                <i class="fa fa-flask"></i>
+                                <span>Years</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/calterm.xhtml">
+                                <i class="fa fa-flask"></i>
+                                <span>Terms</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/caltermyear.xhtml">
+                                <i class="fa fa-flask"></i>
+                                <span>Term calendar</span>
+                            </p:link>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-users"></i>
+                <span>Staff Management</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-right pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>Teaching Staff</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <p:link href="/teacher.xhtml">
+                                <i class="fa fa-users"></i>
+                                <span class="pull-left-container">Teacher</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/subjectallocation.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>Subject Allocation</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/classteacher.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>Class teachers</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/assignedResponsibility.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>Responsibilities</span>
+                            </p:link>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>Non Teaching Staff</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <p:link href="/ntscategories.xhtml">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">BOG categories</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/ntsbog.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>B.O.G</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/ntsPTAcategory.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>PTA categories</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/ntspta.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>P.T.A</span>
+                            </p:link>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-users"></i>
+                <span>Class Management</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-right pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>Students</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <p:link href="/student.xhtml">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Admit</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/student.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>Students</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/studentsubjects.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>Subjects</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/studentsubjects.xhtml">
+                                <i class="fa fa-object-ungroup"></i>
+                                <span>Responsibilities</span>
+                            </p:link>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>Communication</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-cogs"></i>
+                                <span>Setups</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <p:link href="/commsmsgateways.xhtml">
+                                        <i class="fa  fa-dollar"></i>
+                                        <span class="pull-left-container">SMS gateways</span>
+                                    </p:link>
+                                </li>
+                                <li>
+                                    <p:link href="/#">
+                                        <i class="fa fa-object-ungroup"></i>
+                                        <span>Email</span>
+                                    </p:link>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-comments"></i>
+                                <span>Communicate</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <p:link href="#">
+                                        <i class="fa  fa-comment"></i>
+                                        <span class="pull-left-container">Mass SMS</span>
+                                    </p:link>
+                                </li>
+                                <li>
+                                    <p:link href="#">
+                                        <i class="fa fa-envelope"></i>
+                                        <span>Via Email</span>
+                                    </p:link>
+                                </li>
+                                <li>
+                                    <p:link href="#">
+                                        <i class="fa fa-comment"></i>
+                                        <span>Single SMS</span>
+                                    </p:link>
+                                </li>
+                                <li>
+                                    <p:link href="#">
+                                        <i class="fa fa-comment"></i>
+                                        <span>SMS Results</span>
+                                    </p:link>
+                                </li>
+                                <li>
+                                    <p:link href="#">
+                                        <i class="fa fa-comment"></i>
+                                        <span>SMS Balances</span>
+                                    </p:link>
+                                </li>
+                                <li>
+                                    <p:link href="#">
+                                        <i class="fa fa-envelope"></i>
+                                        <span>OutBox</span>
+                                    </p:link>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-registered"></i>
+                        <span>Attendance</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <p:link href="/attendance.xhtml">
+                                <i class="fa  fa-registered"></i>
+                                <span class="pull-left-container">Record Attendance</span>
+                            </p:link>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-google-wallet"></i>
+                <span>Financial</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-right pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-money"></i>
+                        <span>Student Finance</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-cogs"></i>
+                                <span>Settings</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <p:link href="/finyear.xhtml">
+                                        <i class="fa fa-dollar"></i>
+                                        <span class="pull-left-container">Financial Years</span>
+                                    </p:link>
+                                </li>
+                                <li>
+                                    <p:link href="/finuom.xhtml">
+                                        <i class="fa fa-object-ungroup"></i>
+                                        <span>UOM</span>
+                                    </p:link>
+                                </li>
+                                <li>
+                                    <p:link href="/finglaccount.xhtml">
+                                        <i class="fa  fa-money-check"></i>
+                                        <span class="pull-left-container">GL accounts</span>
+                                    </p:link>
+                                </li>
+                                <li>
+                                    <p:link href="/finfeeitems.xhtml">
+                                        <i class="fa fa-object-ungroup"></i>
+                                        <span>Fee Items</span>
+                                    </p:link>
+                                </li>
+                                <li>
+                                    <p:link href="/finfeestructure.xhtml">
+                                        <i class="fa  fa-dollar"></i>
+                                        <span class="pull-left-container">Fee Structure</span>
+                                    </p:link>
+                                </li>
+                                <li>
+                                    <p:link href="/finpaymentmodes.xhtml">
+                                        <i class="fa fa-object-ungroup"></i>
+                                        <span>Pay Modes</span>
+                                    </p:link>
+                                </li>
+                                <li>
+                                    <p:link href="/finbanks.xhtml">
+                                        <i class="fa  fa-dollar"></i>
+                                        <span class="pull-left-container">Banks</span>
+                                    </p:link>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-users"></i>
+                                <span>Transactions</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <p:link href="#">
+                                        <i class="fa  fa-dollar"></i>
+                                        <span class="pull-left-container">Invoicing</span>
+                                    </p:link>
+                                    <ul>
+                                        <li>
+                                            <p:link href="/fininvoice.xhtml">
+                                                <i class="fa  fa-dollar"></i>
+                                                <span class="pull-left-container">Invoice</span>
+                                            </p:link>
+                                        </li>
+                                        <li>
+                                            <p:link href="#">
+                                                <i class="fa fa-object-ungroup"></i>
+                                                <span>Post Invoices</span>
+                                            </p:link>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <p:link href="#">
+                                        <i class="fa  fa-dollar"></i>
+                                        <span class="pull-left-container">Receipting</span>
+                                    </p:link>
+                                    <ul>
+                                        <li>
+                                            <p:link href="/finreceipt.xhtml">
+                                                <i class="fa  fa-dollar"></i>
+                                                <span class="pull-left-container">Receipt</span>
+                                            </p:link>
+                                        </li>
+                                        <li>
+                                            <p:link href="#">
+                                                <i class="fa fa-object-ungroup"></i>
+                                                <span>Approve</span>
+                                            </p:link>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <p:link href="#">
+                                        <i class="fa  fa-dollar"></i>
+                                        <span class="pull-left-container">Balances</span>
+                                    </p:link>
+                                    <ul>
+                                        <li>
+                                            <p:link href="/finfeebalance.xhtml">
+                                                <i class="fa  fa-dollar"></i>
+                                                <span class="pull-left-container">Fee Balance</span>
+                                            </p:link>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-users"></i>
+                                <span>Reports</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <p:link href="statement.xhtml">
+                                        <i class="fa  fa-dollar"></i>
+                                        <span class="pull-left-container">Fee Statement</span>
+                                    </p:link>
+                                </li>
+                                <li>
+                                    <p:link href="finfeebalance.xhtml">
+                                        <i class="fa  fa-dollar"></i>
+                                        <span class="pull-left-container">Balance Notifications</span>
+                                    </p:link>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-book"></i>
+                        <span>Ledger Accounting</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-cogs"></i>
+                                <span>Settings</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <p:link href="/finledgeraccountTYPES.xhtml">
+                                        <i class="fa  fa-dollar"></i>
+                                        <span class="pull-left-container">Account types</span>
+                                    </p:link>
+                                </li>
+                                <li>
+                                    <p:link href="/finledgergroupcategories.xhtml">
+                                        <i class="fa fa-object-ungroup"></i>
+                                        <span>Group categories</span>
+                                    </p:link>
+                                </li>
+                                <li>
+                                    <p:link href="/finledgeraccountgroups.xhtml">
+                                        <i class="fa  fa-dollar"></i>
+                                        <span class="pull-left-container">Account groups</span>
+                                    </p:link>
+                                </li>
+                                <li>
+                                    <p:link href="/finlederaccounts.xhtml">
+                                        <i class="fa fa-object-ungroup"></i>
+                                        <span>Accounts</span>
+                                    </p:link>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-dollar"></i>
+                                <span>Transactions</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <p:link href="/finledgeraccountbudget.xhtml">
+                                        <i class="fa  fa-dollar"></i>
+                                        <span class="pull-left-container">Account Budget</span>
+                                    </p:link>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-users"></i>
+                                <span>Reports</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>Inventory management</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-cogs"></i>
+                                <span>Settings</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-dollar"></i>
+                                <span>Transactions</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-report"></i>
+                                <span>Reports</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-dollar"></i>
+                        <span>Account payable</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-cogs"></i>
+                                <span>Settings</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-dollar"></i>
+                                <span>Transactions</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-dollar"></i>
+                                <span>Reports</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>Cash Book</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-cogs"></i>
+                                <span>Settings</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-dollar"></i>
+                                <span>Transactions</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-users"></i>
+                                <span>Reports</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
+
+
+
+
+        <li>
+            <a href="#">
+                <i class="fa fa-flask"></i>
+                <span>Exams</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-right pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-cogs"></i>
+                        <span>Setup</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <p:link href="/examgradingsystem.xhtml">
+                                <i class="fa  fa-adn"></i>
+                                <span class="pull-left-container">Grading Systems</span>
+                            </p:link>
+                        </li>                            
+                        <li>
+                            <p:link href="/examgradingsystemglobalsetup.xhtml">
+                                <i class="fa  fa-cogs"></i>
+                                <span class="pull-left-container">Global setup</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="#">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Exam Options</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/exammeangrade.xhtml">
+                                <i class="fa  fa-adn"></i>
+                                <span class="pull-left-container">Mean Grade</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/examsubjectremarks.xhtml">
+                                <i class="fa  fa-comments"></i>
+                                <span class="pull-left-container">Subject Remarks</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/examteachersetup.xhtml">
+                                <i class="fa  fa-cogs"></i>
+                                <span class="pull-left-container">Teacher setup</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="#">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Required Subjects</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="#">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Exam Status</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="#">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Paper Status</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="#">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Exam Count</span>
+                            </p:link>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>Marks</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>Reports</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+
+
+
+
+
+        <li>
+            <a href="#">
+                <i class="fa fa-book"></i>
+                <span>Library</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-right pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-cogs"></i>
+                        <span>Settings</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <p:link href="/#">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Item details</span>
+                            </p:link>
+                        </li>                            
+                        <li>
+                            <p:link href="/library.xhtml">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Library</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/librarybookcategories.xhtml">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Book Categories</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/librarypublishers.xhtml">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Publishers</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/librarystationerycategories.xhtml">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Stationery categories</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/libraryauthors.xhtml">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Authors</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/libraryshelve.xhtml">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Shelves</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/librarysuppliers.xhtml">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Suppliers</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/librarymembertypes.xhtml">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Member types</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="/libraryfeefines.xhtml">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">fee/Fines</span>
+                            </p:link>
+                        </li>
+                        <li>
+                            <p:link href="#">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Member fines</span>
+                            </p:link>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>Acquisitions</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <p:link href="/librarynewbookacquisition.xhtml">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Books</span>
+                            </p:link>
+                        </li>                            
+                        <li>
+                            <p:link href="/librarynewstationery.xhtml">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Stationery</span>
+                            </p:link>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>Cataloging</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <p:link href="/librarycatalog.xhtml">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Books</span>
+                            </p:link>
+                        </li>                            
+                        <li>
+                            <p:link href="#">
+                                <i class="fa  fa-dollar"></i>
+                                <span class="pull-left-container">Stationery</span>
+                            </p:link>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <script type="text/javascript">
+        $('.list > li a').click(function () {
+            $(this).parent().find('ul').toggle();
+        });
+    </script>
+</ui:composition>

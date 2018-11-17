@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="#{layoutMB.layout}">
+
+    <ui:define name="head-end">
+        <ui:param name="renderBreadCrumb" value="true"/>
+    </ui:define>
+    <ui:define name="title">
+    </ui:define>
+    <ui:define name="body">
+        <div class="box box-primary" >
+            <h:form id="editForm">
+                <p:panelGrid columns="3" style="background: transparent" columnClasses="ui-grid-col-4,ui-grid-col-4,ui-grid-col-4"
+                             layout="grid" styleClass="ui-fluid card">
+                    <p:link  href="student.xhtml"  >
+                        <p:panelGrid columns="1">
+                            <p:outputLabel value="Student"/>
+                            <img src="images/student.svg" width="80" height="80" alt="student"/>
+                        </p:panelGrid>
+                    </p:link>
+                    <p:link  href="teacher.xhtml" >
+                        <p:panelGrid columns="1">
+                            <p:outputLabel value="Teacher"/>
+                            <img src="images/teacher.svg" width="80" height="80" alt="Teacher"/>
+                        </p:panelGrid>
+
+                    </p:link>
+                    <p:link  href="studentsubjects.xhtml" >
+                        <p:panelGrid columns="1">
+                            <p:outputLabel value="Subject"/>
+                            <img src="images/subject.svg" width="80" height="80" alt="Subject"/>
+                        </p:panelGrid>
+                    </p:link>
+                    <p:link  href="examteachersetup.xhtml" >
+                        <p:panelGrid columns="1">
+                            <p:outputLabel value="Exams"/>
+                            <img src="images/exams.svg" width="80" height="80" alt="Examinations"/>
+                        </p:panelGrid>
+                    </p:link>
+                    <p:link  href="library.xhtml"  >
+                        <p:panelGrid columns="1">
+                            <p:outputLabel value="Library"/>
+                            <img src="images/library.svg" width="80" height="80" alt="Library"/>
+                        </p:panelGrid>
+                    </p:link>
+                    <p:link  href="finreceipt.xhtml" >
+                        <p:panelGrid columns="1">
+                            <p:outputLabel value="Finance"/>
+                            <img src="images/finance.svg" width="80" height="80" alt="Finance"/>
+                        </p:panelGrid>
+                    </p:link>
+                    <p:link  href="streams.xhtml" >
+                        <p:panelGrid columns="1">
+                            <p:outputLabel value="Stream/Class"/>
+                            <img src="images/class.svg" width="80" height="80" alt="class"/>
+                        </p:panelGrid>
+                    </p:link>
+                    <p:link  href="attendance.xhtml" >
+                        <p:panelGrid columns="1">
+                            <p:outputLabel value="Attendance"/>
+                            <img src="images/attendance.jpg" width="80" height="80" alt="Attendance"/>
+                        </p:panelGrid>
+                    </p:link>
+                    <p:link  href="users.xhtml" >
+                        <p:panelGrid columns="1">
+                            <p:outputLabel value="User Setup"/>
+                            <img src="images/employee.svg" width="80" height="80" alt="Users"/>
+                        </p:panelGrid>
+                    </p:link>
+                    <p:link  href="dorms.xhtml" >
+                        <p:panelGrid columns="1">
+                            <p:outputLabel value="House/Dorm Setup"/>
+                            <img src="images/dorms.svg" width="80" height="80" alt="Dorms"/>
+                        </p:panelGrid>
+                    </p:link>
+                    <p:link  href="examgradingsystem.xhtml" >
+                        <p:panelGrid columns="1">
+                            <p:outputLabel value="Grading System"/>
+                            <img src="images/grades.svg" width="80" height="80" alt="Grading"/>
+                        </p:panelGrid>
+                    </p:link>
+                    <p:link  href="dept.xhtml" >
+                        <p:panelGrid columns="1">
+                            <p:outputLabel value="Department"/>
+                            <img src="images/department.png" width="80" height="80" alt="Department"/>
+                        </p:panelGrid>
+                    </p:link>
+                </p:panelGrid>
+            </h:form>
+        </div>
+        <script type="text/javascript">
+            /*if ('serviceWorker' in navigator) {
+             navigator.serviceWorker.register('sw.js');
+             }*/
+
+
+            if ('serviceWorker' in navigator) {
+                /*  navigator.serviceWorker.getRegistrations().then(function (registrations) {
+                 for (let registration of registrations) {
+                 registration.unregister()
+                 }
+                 });*/
+
+                window.addEventListener('load', function () {
+                    navigator.serviceWorker.register('sw.js').then(function (registration) {
+                        // Registration was successful
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, function (err) {
+                        // registration failed :(
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+                });
+            }
+        </script>
+    </ui:define>
+
+
+</ui:composition>

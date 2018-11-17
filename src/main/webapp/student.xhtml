@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="#{layoutMB.layout}">
+
+    <ui:define name="head-end">
+        <ui:param name="renderBreadCrumb" value="true"/>
+    </ui:define>
+    <ui:define name="title">
+    </ui:define>
+    <ui:define name="body">
+
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <div id="main-buttons" class="hidden-sm hidden-xs">
+                    <h:form id="editForm1">
+                        <p:commandButton action="car-form?faces-redirect=true" icon="fa fa-plus" styleClass="btn-primary"
+                                         value="New" />
+                        <p:spacer width="5"/>
+                        <p:commandButton value="Delete Selected" icon="fa fa-trash" styleClass="btn-danger"
+                                         process="@this" update="@form"
+                                         >
+                            <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
+                        </p:commandButton>
+                        <p:spacer width="5"/>
+                        <p:commandButton value="Search" update="@(.ui-dialog)" styleClass="btn-info"
+                                         oncomplete="PF('searchDialog').show()" icon="fa fa-search"/>
+
+                        <p:spacer width="5"/>
+                        <p:commandButton value="Clear" update="@(.ui-dialog, .ui-datatable)" process="@form"
+
+                                         icon="fa fa-refresh"/>
+                    </h:form>
+                </div>
+                <h:form id="ButtonsForm">
+                    <p:splitButton value="New" action="car-form?faces-redirect=true"
+                                   icon="fa fa-plus"
+                                   styleClass="hidden-md hidden-lg btn-primary">
+                        <p:menuitem value="Delete Selected" 
+                                    process="@this" update="@form" 
+                                    icon="fa fa-trash">
+                            <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
+                        </p:menuitem>
+                        <p:menuitem value="Search" update="@(.ui-dialog)"
+                                    oncomplete="PF('searchDialog').show()"
+                                    icon="fa fa-search"/>
+                        <p:menuitem value="Clear" update="@(.ui-dialog, .ui-datatable)" process="@form"
+                                    icon="fa fa-refresh"/>
+                    </p:splitButton>
+                </h:form>
+                <p:separator/>
+                <p:panel id="spanel">
+                    <h:panelGrid columns="1">
+                        <p:growl id="msgs1" sticky="true" showDetail="true" />
+                        <p:tabView  styleClass="si-icon-16x16 si-icon-edit"    style="background: transparent; width: 100%; height: 100%; border: 0" >  
+                            <p:tab title="CREATED STUDENT">
+                                <h:form id="studentdAnimalsForm" style="width: auto" >
+                                    <p:dataTable var="student" value="#{sch.studentList}" widgetVar="usersTable"
+                                                 paginator="true" rows="10"
+                                                 style="background: transparent; font-size:11px"
+                                                 id="studentsTable"
+                                                 emptyMessage="No student found with given criteria" filteredValue="#{sch.studentList}">
+                                        <p:column filterBy="#{student.fullnames}" sortBy="#{student.fullnames}" headerText="fullnames">
+                                            <p:outputLabel value="#{student.fullnames}" />
+                                        </p:column>
+                                        <p:column filterBy="#{student.mobilephone}" sortBy="#{student.mobilephone}" headerText="mobilephone">
+                                            <p:outputLabel value="#{student.mobilephone}" />
+                                        </p:column>
+                                        <p:column filterBy="#{student.address}" sortBy="#{student.address}" headerText="address">
+                                            <p:outputLabel value="#{student.address}" />
+                                        </p:column>
+
+                                        <p:column filterBy="#{student.cpegrade}" sortBy="#{student.cpegrade}" headerText="cpegrade">
+                                            <p:outputLabel value="#{student.cpegrade}" />
+                                        </p:column>
+                                        <p:column filterBy="#{student.cpemarks}" sortBy="#{student.cpemarks}" headerText="cpemarks">
+                                            <p:outputLabel value="#{student.cpemarks}" />
+                                        </p:column>
+
+                                        <p:column style="width:4%">
+                                            <p:commandLink process="@this" styleClass="si-icon-16x16 si-icon-edit" update=":editForm:studentDetail" oncomplete="PF('studentDialog').show()"  value="DETAILS"   title="Edit  #{student.fullnames}'s DETAILS">                                                  
+                                                <f:setPropertyActionListener value="#{student}"   target="#{sch.student}" />  
+                                            </p:commandLink>
+                                        </p:column>
+                                    </p:dataTable>
+                                </h:form>
+                            </p:tab>
+                            <p:tab title="MANAGE STUDENT" >
+                                <h:form id="studentForm" style="width: auto" > 
+                                    <p:wizard styleClass="custom" widgetVar="wiz"  id="wiz" flowListener="#{sch.onFlowProcess}">
+                                        <p:tab id="personal" title="Personal">
+                                            <p:outputLabel value="Student photo"/>
+                                            <h:panelGrid columns="3" cellpadding="5">
+                                                <h:form>
+                                                    <p:fileUpload fileUploadListener="#{sch.handleFileUpload}" mode="advanced" dragDropSupport="false" label="Upload a photo"
+                                                                  multiple="true" update="messages" sizeLimit="100000"  allowTypes="/(\.|\/)(gif|jpe?g|csv)$/" />
+                                                    <p:growl id="messages" showDetail="true" />
+                                                </h:form>
+                                            </h:panelGrid>
+                                            <hr/>
+                                            <p:panelGrid columns="4" columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-2,ui-grid-col-4"
+                                                         layout="grid" styleClass="ui-fluid card">
+                                                <p:outputLabel value="Full names"/>
+                                                <p:inputText  value="#{sch.student.fullnames}"/>
+                                                <p:outputLabel value="Address"/>
+                                                <p:inputText  value="#{sch.student.address}"/>
+                                                <p:outputLabel value="Admission date"/>
+                                                <p:calendar  value="#{sch.student.admissiondate}" pages="3" showOn="button" />
+                                                <p:outputLabel value="Admission number"/>
+                                                <p:inputText  value="#{sch.student.admnum}"/>
+                                                <p:outputLabel value="Alergies"/>
+                                                <p:inputTextarea  value="#{sch.student.alergyies}"/>
+                                                <p:outputLabel value="Birth date"/>
+                                                <p:calendar  value="#{sch.student.birthdate}" pages="3" showOn="button" />
+                                                <p:outputLabel value="Medical condition"/>
+                                                <p:inputTextarea  value="#{sch.student.medicalcodition}"/>
+                                                <p:outputLabel value="Mobile"/>
+                                                <p:inputText  value="#{sch.student.mobilephone}"/>
+                                            </p:panelGrid>
+                                        </p:tab>
+                                        <p:tab id="personal2" title="KCPE details">
+                                            <p:panelGrid columns="4" columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-2,ui-grid-col-4"
+                                                         layout="grid" styleClass="ui-fluid card">
+                                                <p:outputLabel value="KCPE grade"/>
+                                                <p:inputText  value="#{sch.student.cpegrade}"/>
+                                                <p:outputLabel value="English"/>
+                                                <p:inputText  value="#{sch.student.cpeenglish}"/>
+                                                <p:outputLabel value="Index number(KCPE)"/>
+                                                <p:inputText  value="#{sch.student.cpeindex}"/>
+                                                <p:outputLabel value="Kiswahili"/>
+                                                <p:inputText  value="#{sch.student.cpekiswahili}"/>
+                                                <p:outputLabel value="Marks"/>
+                                                <p:inputText  value="#{sch.student.cpemarks}"/>
+                                                <p:outputLabel value="Math"/>
+                                                <p:inputText  value="#{sch.student.cpemath}"/>
+                                                <p:outputLabel value="Mean"/>
+                                                <p:inputText  value="#{sch.student.cpemean}"/>
+                                                <p:outputLabel value="Science"/>
+                                                <p:inputText  value="#{sch.student.cpesci}"/>
+                                                <p:outputLabel value="Social Studies"/>
+                                                <p:inputText  value="#{sch.student.cpess}"/>
+                                            </p:panelGrid>
+                                        </p:tab>
+                                        <p:tab id="personal3" title="Residence">
+                                            <p:panelGrid columns="2" columnClasses="ui-grid-col-3,ui-grid-col-8"
+                                                         layout="grid" styleClass="ui-fluid card">
+                                                <p:outputLabel value="Current class"/>
+                                                <p:selectOneMenu     converter="#{convertor}"  value="#{sch.student.currentclass}"  style="width: 200px" >
+                                                    <f:selectItem itemLabel=" " itemValue="" noSelectionOption="true" />
+                                                    <f:selectItems value="#{sch.formsList}"  var="actorID" itemValue="#{actorID}" itemLabel="#{actorID.name}" />
+                                                </p:selectOneMenu>
+                                                <p:outputLabel value="Dorm"/>
+                                                <p:selectOneMenu     converter="#{convertor}"  value="#{sch.student.dorm}"  style="width: 200px" >
+                                                    <f:selectItem itemLabel=" " itemValue="" noSelectionOption="true" />
+                                                    <f:selectItems value="#{sch.dormsList}"  var="actorID" itemValue="#{actorID}" itemLabel="#{actorID.name}" />
+                                                </p:selectOneMenu>
+                                                <p:outputLabel value="Email Address"/>
+                                                <p:inputText  value="#{sch.student.email}"/>
+                                                <p:outputLabel value="Ethnicity"/>
+                                                <p:inputText  value="#{sch.student.ethnicity}"/>
+                                                <p:outputLabel value="Gender"/>
+                                                <p:selectOneMenu     converter="#{convertor}"  value="#{sch.student.gender}"  style="width: 200px" >
+                                                    <f:selectItem itemLabel="Male" itemValue="Male"/>
+                                                    <f:selectItem itemLabel="Female" itemValue="Female"/>
+                                                </p:selectOneMenu>
+                                                <p:outputLabel value="House"/>
+                                                <p:selectOneMenu     converter="#{convertor}"  value="#{sch.student.house}"  style="width: 200px" >
+                                                    <f:selectItem itemLabel=" " itemValue="" noSelectionOption="true" />
+                                                    <f:selectItems value="#{sch.housesList}"  var="actorID" itemValue="#{actorID}" itemLabel="#{actorID.name}" />
+                                                </p:selectOneMenu>
+                                                <p:outputLabel value="Postal Code"/>
+                                                <p:inputText  value="#{sch.student.postalcode}"/>
+                                                <p:outputLabel value="Religion"/>
+                                                <p:inputText  value="#{sch.student.religion}"/>
+                                                <p:outputLabel value="Residence"/>
+                                                <p:inputText  value="#{sch.student.residence}"/>
+                                                <p:messages for="userForm"  showDetail="true" />
+                                            </p:panelGrid>
+                                            <h:panelGrid columns="8">
+                                                <p:commandButton value="SUBMIT"  ajax="false" icon="fa fa-plus" styleClass="btn-primary"  action="#{sch.createStudent}" />
+                                            </h:panelGrid>
+                                        </p:tab>
+                                    </p:wizard>
+                                </h:form>
+                            </p:tab>
+                        </p:tabView>
+                        <h:form id="editForm">
+                            <p:dialog header="STUDENT" dynamic="true" widgetVar="studentDialog" showEffect="clip"  hideEffect="explode" resizable="false">
+                                <p:outputPanel id="studentDetail" style="text-align:center;">  
+                                    <h:form> 
+                                        <h:panelGrid columns="1" >
+                                            <p:panelGrid columns="4" columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-2,ui-grid-col-4"
+                                                         layout="grid" styleClass="ui-fluid card">
+                                                <p:outputLabel value="Photo"/>
+                                                <h:graphicImage width="180px" height="180px" style="border-radius: 20%;" url="#{sch.student.photourl}"></h:graphicImage>
+                                                <p:outputLabel value="Full names"/>
+                                                <p:inputText  value="#{sch.student.fullnames}"/>
+                                                <p:outputLabel value="Address"/>
+                                                <p:inputText  value="#{sch.student.address}"/>
+                                                <p:outputLabel value="Admission date"/>
+                                                <p:calendar  value="#{sch.student.admissiondate}" pages="3" showOn="button" />
+                                                <p:outputLabel value="Admission number"/>
+                                                <p:inputText  value="#{sch.student.admnum}"/>
+                                                <p:outputLabel value="Alergies"/>
+                                                <p:inputTextarea  value="#{sch.student.alergyies}"/>
+                                                <p:outputLabel value="Admission number"/>
+                                                <p:calendar  value="#{sch.student.birthdate}" pages="3" showOn="button" />
+                                                <p:outputLabel value="KCPE grade"/>
+                                                <p:inputText  value="#{sch.student.cpegrade}"/>
+                                                <p:outputLabel value="English"/>
+                                                <p:inputText  value="#{sch.student.cpeenglish}"/>
+                                                <p:outputLabel value="Index number(KCPE)"/>
+                                                <p:inputText  value="#{sch.student.cpeindex}"/>
+                                                <p:outputLabel value="Kiswahili"/>
+                                                <p:inputText  value="#{sch.student.cpekiswahili}"/>
+                                                <p:outputLabel value="Marks"/>
+                                                <p:inputText  value="#{sch.student.cpemarks}"/>
+                                                <p:outputLabel value="Math"/>
+                                                <p:inputText  value="#{sch.student.cpemath}"/>
+                                                <p:outputLabel value="Mean"/>
+                                                <p:inputText  value="#{sch.student.cpemean}"/>
+                                                <p:outputLabel value="Science"/>
+                                                <p:inputText  value="#{sch.student.cpesci}"/>
+                                                <p:outputLabel value="Social Studies"/>
+                                                <p:inputText  value="#{sch.student.cpess}"/>
+                                                <p:outputLabel value="Current class"/>
+                                                <p:inputText  value="#{sch.student.currentclass}"/>
+                                                <p:outputLabel value="Dorm"/>
+                                                <p:selectOneMenu     converter="#{convertor}"  value="#{sch.student.dorm}"  style="width: 200px" >
+                                                    <f:selectItem itemLabel=" " itemValue="" noSelectionOption="true" />
+                                                    <f:selectItems value="#{sch.dormsList}"  var="actorID" itemValue="#{actorID}" itemLabel="#{actorID.name}" />
+                                                </p:selectOneMenu>
+                                                <p:outputLabel value="Email Address"/>
+                                                <p:inputText  value="#{sch.student.email}"/>
+                                                <p:outputLabel value="Ethnicity"/>
+                                                <p:inputText  value="#{sch.student.ethnicity}"/>
+                                                <p:outputLabel value="Gender"/>
+                                                <p:selectOneMenu     converter="#{convertor}"  value="#{sch.student.gender}"  style="width: 200px" >
+                                                    <f:selectItem itemLabel="Male" itemValue="Male"/>
+                                                    <f:selectItem itemLabel="Female" itemValue="Female"/>
+                                                </p:selectOneMenu>
+                                                <p:outputLabel value="House"/>
+                                                <p:selectOneMenu     converter="#{convertor}"  value="#{sch.student.house}"  style="width: 200px" >
+                                                    <f:selectItem itemLabel=" " itemValue="" noSelectionOption="true" />
+                                                    <f:selectItems value="#{sch.housesList}"  var="actorID" itemValue="#{actorID}" itemLabel="#{actorID.name}" />
+                                                </p:selectOneMenu>
+                                                <p:outputLabel value="Meical condition"/>
+                                                <p:inputTextarea  value="#{sch.student.medicalcodition}"/>
+                                                <p:outputLabel value="Mobile"/>
+                                                <p:inputText  value="#{sch.student.mobilephone}"/>
+                                                <p:outputLabel value="Postal Code"/>
+                                                <p:inputText  value="#{sch.student.postalcode}"/>
+                                                <p:outputLabel value="Religion"/>
+                                                <p:inputText  value="#{sch.student.religion}"/>
+                                                <p:outputLabel value="Residence"/>
+                                                <p:inputText  value="#{sch.student.residence}"/>
+                                                <p:messages for="userForm"  showDetail="true" />
+                                            </p:panelGrid>
+                                            <h:panelGrid columns="8">
+                                                <p:commandButton value="SUBMIT"  ajax="false" icon="fa fa-plus" styleClass="btn-primary"  action="#{sch.updateStudent}" />
+                                            </h:panelGrid>
+                                        </h:panelGrid>
+                                    </h:form>
+                                </p:outputPanel>
+                            </p:dialog>
+                        </h:form>
+                    </h:panelGrid>
+                </p:panel>
+            </div>
+        </div>
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger">
+            <p:commandButton value="Yes" type="button" styleClass="btn-primary ui-confirmdialog-yes"
+                             icon="fa fa-check"/>
+            <p:commandButton value="No" type="button" styleClass="btn-danger ui-confirmdialog-no"
+                             icon="fa fa-close"/>
+        </p:confirmDialog>
+
+        <script type="text/javascript">
+            /*if ('serviceWorker' in navigator) {
+             navigator.serviceWorker.register('sw.js');
+             }*/
+
+
+            if ('serviceWorker' in navigator) {
+                /*  navigator.serviceWorker.getRegistrations().then(function (registrations) {
+                 for (let registration of registrations) {
+                 registration.unregister()
+                 }
+                 });*/
+
+                window.addEventListener('load', function () {
+                    navigator.serviceWorker.register('sw.js').then(function (registration) {
+                        // Registration was successful
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, function (err) {
+                        // registration failed :(
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+                });
+            }
+        </script>
+    </ui:define>
+
+
+</ui:composition>
